@@ -45,12 +45,21 @@ if (scripts.length === 0) {
   }
 }
 
-// 3. 图表占位检查：每个带 id 且 class 含 chart 的 svg 必须为空壳（由 JS 填充）且有对应填充代码
-const chartIds = [...html.matchAll(/<svg id="([^"]+)"[^>]*class="[^"]*chart/g)].map(m => m[1]);
-for (const id of chartIds) {
-  const empty = new RegExp(`<svg id="${id}"[^>]*></svg>`);
-  const filled = html.includes(`"${id}"`) || html.includes(`'${id}'`) || html.includes(id);
-  (empty && filled) ? ok(`图表 #${id}：空壳 + JS 填充代码存在`) : fail(`图表 #${id} 结构异常`);
+// 3. 图表检查：所有空壳 <svg id="X"> 必须在 <script> 内被引用填充（getElementById/renderLineBar 等调用）
+//    注：匹配空壳标签本身，不依赖 class 位置（class 在外层 div 上）
+const scriptsAll = scripts.join('\n');
+const chartIds = [...html.matchAll(/<svg id="([^"]+)"[^>]*>\s*<\/svg>/g)].map(m => m[1]);
+if (chartIds.length === 0) {
+  fail('未发现任何空壳 SVG 图表（<svg id="..."></svg>）');
+} else {
+  ok(`发现 ${chartIds.length} 张图表: ${chartIds.join(', ')}`);
+  for (const id of chartIds) {
+    const referenced = scriptsAll.includes(`getElementById("${id}")`) ||
+                       scriptsAll.includes(`getElementById('${id}')`) ||
+                       scriptsAll.includes(`"${id}"`) ||
+                       scriptsAll.includes(`'${id}'`);
+    referenced ? ok(`图表 #${id}：空壳 + JS 填充引用存在`) : fail(`图表 #${id}：空壳存在但 <script> 中无填充引用`);
+  }
 }
 
 // 4. 表头占位词检查
@@ -58,7 +67,21 @@ const badHeaders = ['TODO', 'XXX', '占位', '口径说明'];
 for (const w of badHeaders) {
   if (html.includes(w)) fail(`发现疑似占位/错误文本: "${w}"`);
 }
-if (!failed || !html.includes('TODO')) ok('无占位表头');
+if (html.includes('TODO') === false) ok('无占位表头');
+
+// 5. 文件名与报告日期一致性：技术面复盘_YYYYMMDD.html ↔ <title>/统计日期
+const dateM = path.basename(file).match(/_(\d{8})\.html$/);
+if (!dateM) {
+  ok('文件名不含日期后缀，跳过日期一致性检查');
+} else {
+  const ymd = dateM[1];
+  const ymdDash = `${ymd.slice(0,4)}-${ymd.slice(4,6)}-${ymd.slice(6,8)}`;
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+  (title.includes(ymdDash)) ? ok(`<title> 日期与文件名一致（${ymdDash}）`)
+                            : fail(`<title> "${title}" 不含文件名日期 ${ymdDash}`);
+  (html.includes(`统计日期：${ymdDash}`)) ? ok(`统计日期与文件名一致（${ymdDash}）`)
+                            : fail(`正文缺少「统计日期：${ymdDash}」`);
+}
 
 console.log(failed === 0 ? '\n全部检查通过 ✓' : `\n${failed} 项检查失败 ✗`);
 process.exit(failed === 0 ? 0 : 1);

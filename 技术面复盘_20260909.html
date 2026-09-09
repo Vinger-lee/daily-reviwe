@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股技术面三维复盘 · 2026-09-09</title>
+<style>
+:root{
+  --red:#dc2626; --green:#16a34a; --accent:#1e40af;
+  --bg:#f6f7f9; --card:#ffffff; --line:#e5e7eb;
+  --text:#1f2937; --muted:#6b7280; --soft:#f0f4ff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 48px;}
+header{border-left:6px solid var(--accent);padding:4px 0 4px 16px;margin-bottom:18px;}
+header h1{font-size:24px;color:var(--accent);}
+header .sub{color:var(--muted);font-size:13px;margin-top:4px;}
+.tldr{background:linear-gradient(135deg,#eef2ff, #f8fafc);border:1px solid #dbe3f8;border-radius:10px;padding:18px 20px;margin-bottom:22px;}
+.tldr .verdict{font-size:18px;font-weight:bold;color:var(--accent);margin-bottom:8px;}
+.tldr .kpis{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0;}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px;min-width:130px;}
+.kpi .k{font-size:12px;color:var(--muted);}
+.kpi .v{font-size:16px;font-weight:bold;}
+.up{color:var(--red);} .down{color:var(--green);} .flat{color:var(--muted);}
+.tldr .frame{font-size:13px;background:#fff;border-left:4px solid var(--accent);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:8px;}
+h2{font-size:18px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;margin:30px 0 14px;}
+h3{font-size:15px;margin:14px 0 8px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px;}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:var(--soft);color:var(--accent);text-align:left;padding:7px 9px;border-bottom:2px solid var(--accent);}
+td{padding:6px 9px;border-bottom:1px solid var(--line);}
+tr:last-child td{border-bottom:none;}
+.tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;margin-left:6px;vertical-align:2px;}
+.tag.p0{background:#fee2e2;color:#b91c1c;}
+.tag.p1{background:#ffedd5;color:#c2410c;}
+.tag.p2{background:#e0f2fe;color:#0369a1;}
+.tag.p3{background:#f3f4f6;color:#6b7280;}
+ul.obs{list-style:none;}
+ul.obs li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px;}
+ul.obs li:last-child{border-bottom:none;}
+ul.obs b{color:var(--accent);}
+.lv{font-weight:bold;}
+.lv1{color:#c2410c;} .lv2{color:#1e40af;} .lv3{color:#b45309;}
+.note{font-size:12px;color:var(--muted);margin-top:6px;}
+.risk{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px 18px;font-size:13px;}
+footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);}
+.chart{width:100%;overflow-x:auto;}
+@media(max-width:640px){.kpi{min-width:45%;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>A股技术面三维复盘</h1>
+  <div class="sub">统计日期：2026-09-09（星期三，交易日）· 数据截至当日收盘 · 风险面看上证 / 进攻面看国证2000 / 情绪面看全市场广度</div>
+</header>
+
+<!-- 首屏结论 -->
+<section class="tldr">
+  <div class="verdict">一句话定性：区间震荡市，指数「上有顶、下有底」，小盘进攻线修复中 —— 可轻仓试攻，不宜追高压顶。</div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">上证指数</div><div class="v up">3951.51 +0.28%</div></div>
+    <div class="kpi"><div class="k">国证2000</div><div class="v down">10026.22 -0.17%</div></div>
+    <div class="kpi"><div class="k">创业板指</div><div class="v down">3354.97 -0.14%</div></div>
+    <div class="kpi"><div class="k">两市成交</div><div class="v flat">18556亿 (-1047亿)</div></div>
+    <div class="kpi"><div class="k">红盘占比</div><div class="v down">32%（1794/3642）</div></div>
+    <div class="kpi"><div class="k">涨停 / 跌停</div><div class="v">49 / 9</div></div>
+  </div>
+  <div class="frame">当前阶段的判断是：权重稳、题材退，赚钱效应收缩到少数方向（航运港口、元件/通信、资源与农业）。等信号确认而非提前押注——上证 3988–4000 压力带未放量突破前，宁可错过机会也不做无把握的决策。</div>
+</section>
+
+<!-- 指数全景 -->
+<h2>指数全景</h2>
+<div class="card">
+<table>
+<thead><tr><th>指数</th><th>收盘</th><th>涨跌幅</th><th>5日</th><th>20日外口径说明</th><th>成交额(亿)</th></tr></thead>
+<tbody>
+<tr><td>上证指数</td><td>3951.51</td><td class="up">+0.28%</td><td class="up">+0.26%</td><td>站上 MA5/10/20/60</td><td>8737</td></tr>
+<tr><td>深证成指</td><td>13723.32</td><td class="up">+0.15%</td><td class="up">+0.82%</td><td>缩量整理</td><td>9819</td></tr>
+<tr><td>创业板指</td><td>3354.97</td><td class="down">-0.14%</td><td class="up">+1.29%</td><td>高位回落中</td><td>4333</td></tr>
+<tr><td>国证2000</td><td>10026.22</td><td class="down">-0.17%</td><td class="up">+0.79%</td><td>站上 MA5/10/20</td><td>6011</td></tr>
+<tr><td>中证1000</td><td>7648.80</td><td class="down">-0.14%</td><td class="up">+0.86%</td><td>小盘同步整理</td><td>4076</td></tr>
+<tr><td>北证50</td><td>1081.81</td><td class="down">-0.41%</td><td class="down">-2.24%</td><td>高位补跌</td><td>176</td></tr>
+</tbody>
+</table>
+<p class="note">数据时点：2026-09-09 收盘，综合交易所行情统计。</p>
+</div>
+
+<!-- 风险面 -->
+<h2>① 风险面 · 上证指数：中性偏稳，压力带明确 <span class="tag p1">宜谨慎乐观</span></h2>
+<div class="grid3">
+  <div class="card">
+    <h3>日K结构（近25日收盘走势）</h3>
+    <div class="chart"><svg id="chartSH" viewBox="0 0 640 260" width="100%"></svg></div>
+    <p class="note">红柱为涨、绿柱为跌；折线为收盘价；下方面积为成交额（亿元）。</p>
+  </div>
+  <div class="card">
+    <h3>指标读数（2026-09-09 收盘）</h3>
+    <table>
+      <tbody>
+        <tr><td>收盘 vs 均线</td><td>站上 MA5(3939)/MA10(3951)/MA20(3936)/MA60(3948)；<b class="down">低于 MA120(3999) 与 MA250(3988)</b></td></tr>
+        <tr><td>MACD</td><td>DIF 7.37 &gt; DEA 6.31，零轴上方，柱体 +2.13 但扩张乏力</td></tr>
+        <tr><td>KDJ</td><td>K 48.9 &lt; D 55.7，J 值 35.4 自高位回落，短线动能收敛</td></tr>
+        <tr><td>布林带</td><td>上轨 3999.9 / 中轨 3936.4 / 下轨 3872.9，收盘贴上轨运行</td></tr>
+        <tr><td>周线</td><td>7月中旬单周 -5.81% 后连续 7 周收敛整理，本周至今 +0.54%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">定性：<b>MA250(3988) + MA120(3999) + 布林上轨(3999.9) 三线汇聚于 3988–4000，构成强压力带</b>；下方 3930（MA20/MA60）为第一支撑。上有顶、下有底，区间震荡格局未破。</p>
+  </div>
+</div>
+
+<!-- 进攻面 -->
+<h2>② 进攻面 · 国证2000：强势整理，修复未完成 <span class="tag p2">轻仓试攻</span></h2>
+<div class="grid3">
+  <div class="card">
+    <h3>日K结构（近25日收盘走势）</h3>
+    <div class="chart"><svg id="chartGZ" viewBox="0 0 640 260" width="100%"></svg></div>
+    <p class="note">9-07 放量 +1.67% 后连续两日缩量整理（6175亿→6011亿），属强势整理而非走弱；8-19 曾单日 -5.50% 显示小盘波动弹性大。</p>
+  </div>
+  <div class="card">
+    <h3>指标读数与相对强弱</h3>
+    <table>
+      <tbody>
+        <tr><td>均线站位</td><td>站上 MA5(9981)/MA10(10014)/MA20(9997)；<b class="down">MA60(10132) 上方压制</b>，MA250(10281) 更远</td></tr>
+        <tr><td>MACD</td><td>DIF 26.73 &gt; DEA 18.23，零轴上方金叉，柱体 +17.0 处于扩张段</td></tr>
+        <tr><td>KDJ / RSI6</td><td>K 63.5 / D 62.9 / J 64.7 中位偏强；RSI6 54.9 无超买</td></tr>
+        <tr><td>布林带</td><td>收盘 10026 站上中轨 9997，上轨 10319</td></tr>
+        <tr><td>相对上证</td><td>5日 +0.79% vs 上证 +0.26% 略强；60日 -10.56% vs 上证 -3.43%，中期仍显著偏弱</td></tr>
+      </tbody>
+    </table>
+    <p class="note">判断：进攻线在修复、方向偏多，但<b>未收复 MA60(约10130) 之前不算真正走好</b>——那一步确认后，才具备从「轻仓试攻」升级「趋势跟进」的条件。</p>
+  </div>
+</div>
+
+<!-- 情绪面 -->
+<h2>③ 情绪面 · 全市场广度：偏凉且分化 <span class="tag p1">情绪偏低</span></h2>
+<div class="card">
+  <div class="chart"><svg id="chartDist" viewBox="0 0 640 300" width="100%"></svg></div>
+  <p class="note">沪深A股涨跌分布（2026-09-09 收盘）。上涨 1794 家（32%）/ 下跌 3642 家 / 平盘 124 / 停牌 10；两市成交 18556 亿，较上日缩量 1047 亿，仅为 120 日均值的 76%。</p>
+</div>
+<div class="card">
+  <h3>情绪结构读数</h3>
+  <table>
+    <tbody>
+      <tr><td>温度</td><td>红盘占比仅 32%，普跌结构；指数靠权重稳住，个股体感偏冷</td></tr>
+      <tr><td>极端情绪</td><td>涨停 49 家 / 跌停 9 家，未出现恐慌性极端</td></tr>
+      <tr><td>接力溢价</td><td>昨日涨停今日 <b class="up">+1.20%</b>、昨日首板 <b class="up">+1.12%</b>、昨日连板 <b class="up">+0.62%</b>，接力溢价为正、亏钱效应未扩散</td></tr>
+      <tr><td>连板梯队</td><td>连板共 74 只，最高 4 连板（亚盛集团 sh600108、百大集团 sh600865、爱仕达 sz002403），高度偏低，缺乏总龙头</td></tr>
+      <tr><td>参与度</td><td>成交 1.86 万亿，较 5 日均值 -3%、较 120 日均值 -24%，量能中枢持续下移</td></tr>
+    </tbody>
+  </table>
+  <p class="note">情绪定位：<b>退潮后的低位修复期</b>——亏钱效应收敛但赚钱效应也只集中在少数方向，属于「局部抱团 + 普跌」的脆弱结构，仓位上限应受温度约束。</p>
+</div>
+
+<!-- 主线板块 -->
+<h2>④ 主线板块：无单一共振主线，双线轮动</h2>
+<div class="card">
+<table>
+<thead><tr><th>方向</th><th>板块</th><th>当日涨幅</th><th>主力净流入(当日/5日, 亿)</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td rowspan="4" class="lv lv1">P0 进攻线</td><td>元件（PCB/被动件）</td><td class="up">+2.04%</td><td class="up">+49.3 / +163.8</td><td>5日资金最强，领涨 满坤科技(sz002860) +10.00%</td></tr>
+<tr><td>通信设备</td><td class="up">+0.79%</td><td class="up">+57.1 / +193.0</td><td>涨幅温和但资金持续流入，领涨 兆龙互连(sz300913)</td></tr>
+<tr><td>航运港口</td><td class="up">+3.86%</td><td class="up">+11.0 / +21.4</td><td>34/34 全涨，领涨 南京港(sz002040) +10.03%</td></tr>
+<tr><td>工业金属</td><td class="up">+2.01%</td><td class="up">+11.1 / +32.6</td><td>45/59 上涨，铜链领涨</td></tr>
+<tr><td rowspan="3" class="lv lv3">P1 防御/轮动</td><td>煤炭开采</td><td class="up">+3.04%</td><td class="up">+5.0 / -0.03</td><td>郑州煤电(sh600121) 涨停，防御+旺季逻辑</td></tr>
+<tr><td>橡胶 / 农业链</td><td class="up">+4.07% / +3.0%</td><td>分化</td><td>农产品加工、渔业、种植业多方向涨停潮</td></tr>
+<tr><td>电力</td><td class="up">+0.85%</td><td class="up">+12.7 / +3.3</td><td>81/109 上涨，热度榜第一位</td></tr>
+<tr><td rowspan="3" class="lv lv2">P3 退潮回避</td><td>半导体</td><td class="down">-0.69%</td><td class="down">-62.7 / -169.9</td><td>大额流出，反抽看戏</td></tr>
+<tr><td>传媒（游戏/出版/数字媒体）</td><td class="down">-2.8%~-4.1%</td><td class="down">流出</td><td>前期高位方向集体补跌</td></tr>
+<tr><td>计算机/软件、医药、地产链</td><td class="down">-0.7%~-3.8%</td><td class="down">流出</td><td>软件开发 5日 -23.3 亿</td></tr>
+</tbody>
+</table>
+<p class="note">数据时点：2026-09-09 收盘，全市场板块行情榜（124 个申万口径行业）。主线判断：资金在「算力硬件出海链（元件/通信/航运）」与「资源+农业防御」之间轮动，尚无单一共振主线；<b>通信设备+元件 5 日合计净流入超 350 亿，是当前资金共识度最高的方向</b>。分级仅表示观察优先级，不代表推荐。</p>
+</div>
+
+<!-- 三档建仓 -->
+<h2>⑤ 三档建仓参考（条件 → 操作 → 止损）</h2>
+<div class="card">
+<table>
+<thead><tr><th>档位</th><th>触发条件</th><th>参考动作</th><th>止损纪律</th></tr></thead>
+<tbody>
+<tr><td><span class="lv lv1">第 1 档 · 左侧试探</span></td><td>上证回踩 3920–3935（MA20/MA60 + 布林中轨区）并缩量止跌、出现底分型</td><td>小仓位（≤2 成）试错，只选资金 5 日净流入为正的方向</td><td>跌破 3900（前低 3916 下方）无条件离场</td></tr>
+<tr><td><span class="lv lv2">第 2 档 · 趋势跟进</span></td><td>国证2000 放量收复 10130（MA60）且 MACD 柱体继续扩张</td><td>中仓位跟进小盘成长，跟随主线板块而非散票</td><td>收盘回落 9990（MA20/布林中轨）下方减仓</td></tr>
+<tr><td><span class="lv lv3">第 3 档 · 突破加仓</span></td><td>上证放量（两市 &gt; 2 万亿）站稳 4000 上方</td><td>右侧加仓，压力带消化确认后再上仓位</td><td>回踩 3970（MA250）下方即离场观望</td></tr>
+</tbody>
+</table>
+<p class="note">以上为条件化框架推演，非买卖建议；任一档位单笔风险敞口建议不超过总资金的既定风控比例。<b>风险警示：三档条件均可能不触发，空仓等待也是策略的一部分。</b></p>
+</div>
+
+<!-- 次日观察 -->
+<h2>⑥ 次日观察清单</h2>
+<div class="card">
+<ul class="obs">
+  <li><b>量能：</b>两市成交能否回升至 1.9 万亿上方——缩量反弹的持续性存疑，放量才是修复信号。</li>
+  <li><b>压力带攻防：</b>上证 3988–4000（MA250+MA120+布林上轨）首次触及预计有抛压，放量突破才改判。</li>
+  <li><b>强弱切换：</b>国证2000 与上证的相对强弱——小盘若先收复 MA60，说明进攻线率先走好。</li>
+  <li><b>主线延续：</b>航运港口（34/34 全涨）与元件/通信设备能否继续放量上行；若集体滞涨则轮动加速。</li>
+  <li><b>情绪锚点：</b>昨日涨停溢价能否维持正值、跌停家数是否扩至 15 家以上（扩则退潮重启）。</li>
+  <li><b>退潮方向：</b>传媒/游戏/半导体是否止跌企稳——高位补跌扩散会拖累整体风偏。</li>
+</ul>
+</div>
+
+<!-- 风险提示 -->
+<h2>⑦ 风险提示</h2>
+<div class="risk">
+  <ul style="margin-left:18px;">
+    <li>红盘占比仅 32% 且量能中枢下移，指数平稳的表象下个股体感偏冷，「赚指数不赚钱」结构可能延续。</li>
+    <li>上证 3988–4000 三线汇聚压力带，缩量状态下强行突破失败回落的概率不低。</li>
+    <li>小盘线 60 日维度仍大幅跑输，8-19 单日 -5.5% 的波动提示弹性与风险并存。</li>
+    <li>连板高度仅 4 板、无总龙头，题材接力空间受限，追高连板票风险收益比差。</li>
+    <li>宏观与政策事件（数据发布、海外市场波动）可能改变节奏，触发条件失效时一律按纪律执行。</li>
+  </ul>
+  <p style="margin-top:8px;"><b>以上分析基于公开数据，不构成投资建议。</b>市场有风险，投资需谨慎。</p>
+</div>
+
+<footer>
+  统计日期：2026-09-09（A股交易日，数据截至当日收盘）· 覆盖范围：上证指数、国证2000、沪深A股全市场广度 · 所有数据为交易所公开行情统计整理 · 本页资源全部内联，可离线打开<br>
+  免责声明：以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
+</footer>
+
+</div>
+
+<script>
+/* ============ 数据（2026-09-09 收盘采集） ============ */
+// [日期, 收盘, 涨跌幅%, 成交额亿]
+var shData = [
+["08-06",3900.35,0.57,11668],["08-07",3940.04,1.02,12095],["08-10",3966.59,0.67,11669],
+["08-11",3934.09,-0.82,10667],["08-12",3946.68,0.32,9861],["08-13",3926.96,-0.50,11642],
+["08-14",3927.18,0.01,9904],["08-17",3982.65,1.41,11128],["08-18",3990.30,0.19,11352],
+["08-19",3894.42,-2.40,12181],["08-20",3903.72,0.24,10186],["08-21",3905.20,0.04,8834],
+["08-24",3882.01,-0.59,9520],["08-25",3889.44,0.19,8589],["08-26",3912.52,0.59,8572],
+["08-27",3956.57,1.13,10102],["08-28",3952.18,-0.11,9704],["08-31",3986.30,0.86,10143],
+["09-01",3979.89,-0.16,9443],["09-02",3941.39,-0.97,8354],["09-03",3942.09,0.02,8199],
+["09-04",3930.12,-0.30,9383],["09-07",3932.70,0.07,8979],["09-08",3940.55,0.20,9156],
+["09-09",3951.51,0.28,8737]
+];
+var gzData = [
+["08-06",9784.07,0.79,7013],["08-07",9971.30,1.91,7478],["08-10",10058.63,0.88,7154],
+["08-11",10004.48,-0.54,6763],["08-12",10145.08,1.41,6410],["08-13",10036.35,-1.07,7558],
+["08-14",10115.47,0.79,6607],["08-17",10367.56,2.49,7095],["08-18",10333.53,-0.33,7183],
+["08-19",9764.86,-5.50,7250],["08-20",9882.80,1.21,6299],["08-21",9887.59,0.05,5600],
+["08-24",9738.03,-1.51,5797],["08-25",9834.22,0.99,5651],["08-26",9837.33,0.03,5391],
+["08-27",10073.10,2.40,6476],["08-28",10036.44,-0.36,6563],["08-31",10123.08,0.86,6389],
+["09-01",10052.63,-0.70,6144],["09-02",9947.87,-1.04,5453],["09-03",9966.39,0.19,5688],
+["09-04",9852.84,-1.14,6521],["09-07",10017.02,1.67,5944],["09-08",10042.91,0.26,6175],
+["09-09",10026.22,-0.17,6011]
+];
+// 涨跌分布
+var dist = [
+["涨停",49,"#dc2626"],[">7%",51,"#ef7a7a"],["5~7%",76,"#f09a9a"],["2~5%",378,"#f5c2c2"],
+["0~2%",1240,"#fadddd"],["平盘",124,"#d1d5db"],["0~2%",2572,"#cdeadd"],
+["2~5%",955,"#93d8b3"],["5~7%",73,"#4caf7d"],[">7%",33,"#1f7a4d"],["跌停",9,"#16a34a"]
+];
+
+/* ============ 折线+量柱 SVG 渲染 ============ */
+function renderLineBar(svgId, data, pad) {
+  var svg = document.getElementById(svgId);
+  var W = 640, H = 260;
+  var m = {l: 56, r: 56, t: 14, b: 30};
+  var pw = W - m.l - m.r, ph = H - m.t - m.b - pad;
+  var n = data.length;
+  var closes = data.map(function(d){return d[1];});
+  var amts = data.map(function(d){return d[3];});
+  var minC = Math.min.apply(null, closes), maxC = Math.max.apply(null, closes);
+  var range = maxC - minC || 1;
+  minC -= range * 0.08; maxC += range * 0.08;
+  var maxA = Math.max.apply(null, amts);
+  var x = function(i){ return m.l + (n === 1 ? pw/2 : pw * i / (n - 1)); };
+  var yC = function(v){ return m.t + ph * (1 - (v - minC) / (maxC - minC)); };
+  var h = "", s = "", i, d;
+  // 网格与Y刻度（收盘）
+  for (i = 0; i <= 4; i++) {
+    var v = minC + (maxC - minC) * i / 4;
+    var yy = yC(v);
+    s += '<line x1="' + m.l + '" y1="' + yy + '" x2="' + (W - m.r) + '" y2="' + yy + '" stroke="#eef0f4"/>';
+    s += '<text x="' + (m.l - 6) + '" y="' + (yy + 4) + '" font-size="10" fill="#9ca3af" text-anchor="end">' + v.toFixed(0) + '</text>';
+  }
+  // 成交额柱（底部，右轴）
+  var barTop = m.t + ph + 4, barH = pad - 8, barW = pw / n * 0.5;
+  for (i = 0; i < n; i++) {
+    var bh = barH * amts[i] / maxA;
+    s += '<rect x="' + (x(i) - barW/2) + '" y="' + (barTop + barH - bh) + '" width="' + barW + '" height="' + bh + '" fill="' + (data[i][2] >= 0 ? "#f3b8b8" : "#b9dcc9") + '"/>';
+  }
+  s += '<text x="' + (W - m.r + 6) + '" y="' + (barTop + barH + 2) + '" font-size="10" fill="#9ca3af">' + (maxA/10000).toFixed(1) + '万亿</text>';
+  // 涨跌点 + 折线
+  var pts = [];
+  for (i = 0; i < n; i++) {
+    pts.push(x(i) + "," + yC(data[i][1]));
+    var col = data[i][2] >= 0 ? "#dc2626" : "#16a34a";
+    s += '<circle cx="' + x(i) + '" cy="' + yC(data[i][1]) + '" r="2.2" fill="' + col + '"/>';
+  }
+  s += '<polyline points="' + pts.join(" ") + '" fill="none" stroke="#1e40af" stroke-width="1.6"/>';
+  // X 轴标签（每5个）
+  for (i = 0; i < n; i += 5) {
+    s += '<text x="' + x(i) + '" y="' + (H - 8) + '" font-size="10" fill="#9ca3af" text-anchor="middle">' + data[i][0] + '</text>';
+  }
+  svg.innerHTML = s;
+}
+renderLineBar("chartSH", shData, 34);
+renderLineBar("chartGZ", gzData, 34);
+
+/* ============ 涨跌分布横向条形 ============ */
+(function(){
+  var svg = document.getElementById("chartDist");
+  var W = 640, rowH = 24, m = {l: 70, r: 60, t: 6};
+  var H = dist.length * rowH + m.t + 8;
+  var maxV = 2572;
+  var pw = W - m.l - m.r;
+  var s = "", i;
+  for (i = 0; i < dist.length; i++) {
+    var yy = m.t + i * rowH;
+    var bw = pw * dist[i][1] / maxV;
+    s += '<text x="' + (m.l - 8) + '" y="' + (yy + 15) + '" font-size="11" fill="#374151" text-anchor="end">' + dist[i][0] + '</text>';
+    s += '<rect x="' + m.l + '" y="' + (yy + 3) + '" width="' + Math.max(bw, 2) + '" height="' + (rowH - 8) + '" rx="3" fill="' + dist[i][2] + '"/>';
+    s += '<text x="' + (m.l + Math.max(bw, 2) + 6) + '" y="' + (yy + 15) + '" font-size="11" fill="#6b7280">' + dist[i][1] + '家</text>';
+  }
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  svg.innerHTML = s;
+})();
+</script>
+</body>
+</html>
